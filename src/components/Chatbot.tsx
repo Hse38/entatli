@@ -107,7 +107,7 @@ export function Chatbot() {
       <motion.button
         onClick={openChat}
         className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-dark shadow-lg transition hover:bg-dark/90 focus:outline-none focus:ring-2 focus:ring-lilac/50 md:bottom-6 md:right-6"
-        aria-label="Open Textile Intelligence Assistant"
+        aria-label="Open Event Catering Assistant"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
         initial={{ opacity: 0, y: 20 }}
@@ -140,15 +140,15 @@ export function Chatbot() {
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
             role="dialog"
-            aria-label="Textile Intelligence Assistant"
+            aria-label="Event Catering Assistant"
             aria-modal="true"
           >
             {/* Header */}
             <div className="sticky top-0 z-10 border-b border-gray-100 bg-white px-6 py-4">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold text-dark">Textile Assistant</h3>
-                  <p className="mt-0.5 text-xs text-gray-500">Production & Supply Guidance</p>
+                  <h3 className="text-lg font-semibold text-dark">Event Catering Assistant</h3>
+                  <p className="mt-0.5 text-xs text-gray-500">Event Planning & Service Guidance</p>
                 </div>
                 <button
                   onClick={closeChat}
@@ -236,7 +236,7 @@ export function Chatbot() {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask about products, production, or capabilities..."
+                  placeholder="Ask about services, events, or capabilities..."
                   className="flex-1 rounded-lg border border-gray-200 px-4 py-2.5 text-sm text-dark placeholder:text-gray-400 focus:border-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50"
                   disabled={isLoading}
                 />
