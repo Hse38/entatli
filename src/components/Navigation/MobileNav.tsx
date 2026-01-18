@@ -156,13 +156,19 @@ export function MobileNav({
               ? { rotate: 45, y: 8 }
               : { rotate: 0, y: 0 }
           }
-          className={`block h-0.5 w-6 transition-colors ${
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+          }
+          className={`block h-[2px] w-6 transition-colors ${
             buttonColor === "white" ? "bg-white" : "bg-dark"
           }`}
         />
         <motion.span
           animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-          className={`block h-0.5 w-6 transition-colors ${
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.15 }}
+          className={`block h-[2px] w-6 transition-colors ${
             buttonColor === "white" ? "bg-white" : "bg-dark"
           }`}
         />
@@ -172,7 +178,12 @@ export function MobileNav({
               ? { rotate: -45, y: -8 }
               : { rotate: 0, y: 0 }
           }
-          className={`block h-0.5 w-6 transition-colors ${
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+          }
+          className={`block h-[2px] w-6 transition-colors ${
             buttonColor === "white" ? "bg-white" : "bg-dark"
           }`}
         />
