@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { useNav } from "../../contexts/NavContext";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
@@ -81,6 +81,7 @@ export function MobileNav({
 
   const menuRef = useRef<HTMLDivElement>(null);
   const servicesMenuRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   // Focus trap
   useEffect(() => {
@@ -186,7 +187,11 @@ export function MobileNav({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.25, ease: [0.4, 0, 0.2, 1] }
+              }
               onClick={closeAllMenus}
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
             />
@@ -195,13 +200,17 @@ export function MobileNav({
             <motion.div
               ref={menuRef}
               id="mobile-menu"
-              initial={{ x: "100%", opacity: 0 }}
+              initial={shouldReduceMotion ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{ 
-                duration: 0.25,
-                ease: [0.4, 0, 0.2, 1] // ease-in-out
-              }}
+              exit={shouldReduceMotion ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : {
+                      duration: 0.25,
+                      ease: [0.4, 0, 0.2, 1], // ease-in-out
+                    }
+              }
               className="fixed right-0 top-0 z-50 h-full w-[90%] max-w-[420px] bg-white shadow-2xl md:hidden rounded-l-3xl"
               role="dialog"
               aria-modal="true"
@@ -252,10 +261,14 @@ export function MobileNav({
                     {!isServicesSubMenuOpen ? (
                       <motion.nav
                         key="main-nav"
-                        initial={{ opacity: 0, x: -10 }}
+                        initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 10 }}
-                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        exit={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
+                        transition={
+                          shouldReduceMotion
+                            ? { duration: 0 }
+                            : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+                        }
                         className="flex flex-col gap-1 p-6"
                       >
                         <Link
@@ -347,10 +360,14 @@ export function MobileNav({
                       <motion.nav
                         key="services-nav"
                         ref={servicesMenuRef}
-                        initial={{ opacity: 0, x: 10 }}
+                        initial={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -10 }}
-                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        exit={shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                        transition={
+                          shouldReduceMotion
+                            ? { duration: 0 }
+                            : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
+                        }
                         className="flex flex-col p-6"
                       >
                         {/* Back Button */}
