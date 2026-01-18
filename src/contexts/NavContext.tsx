@@ -22,12 +22,23 @@ export function NavProvider({ children }: { children: ReactNode }) {
   const openMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(true);
     document.body.style.overflow = "hidden";
+    // Add blur class to main content when menu is open
+    const mainContent = document.querySelector("main");
+    if (mainContent) {
+      mainContent.style.filter = "blur(4px)";
+      mainContent.style.transition = "filter 0.25s ease";
+    }
   }, []);
 
   const closeMobileMenu = useCallback(() => {
     setIsMobileMenuOpen(false);
     setIsServicesSubMenuOpen(false);
     document.body.style.overflow = "unset";
+    // Remove blur from main content when menu is closed
+    const mainContent = document.querySelector("main");
+    if (mainContent) {
+      mainContent.style.filter = "none";
+    }
   }, []);
 
   const toggleMobileMenu = useCallback(() => {

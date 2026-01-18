@@ -204,7 +204,7 @@ export function MobileNav({
                   : { duration: 0.25, ease: [0.4, 0, 0.2, 1] }
               }
               onClick={closeAllMenus}
-              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-md md:hidden"
             />
 
             {/* Main Menu */}
@@ -295,14 +295,6 @@ export function MobileNav({
                         }
                         className="flex flex-col gap-1 p-6"
                       >
-                        <Link
-                          href="/"
-                          onClick={closeAllMenus}
-                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
-                        >
-                          {language === "tr" ? "Ana Sayfa" : "Home"}
-                        </Link>
-
                         <button
                           type="button"
                           onClick={openServicesSubMenu}
