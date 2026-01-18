@@ -105,12 +105,12 @@ export function generateMetaTitle(
   service: ServiceData | null,
   language: Language
 ): string {
-  const baseBrand = "ENTATLI";
+  const baseBrand = "En Tatlı Telaşım";
   
   if (!service) {
     return language === "tr"
-      ? "Premium Etkinlik Catering & Organizasyon Hizmetleri | ENTATLI"
-      : "Premium Event Catering & Organization Services | ENTATLI";
+      ? "Premium Etkinlik Catering & Organizasyon Hizmetleri | En Tatlı Telaşım"
+      : "Premium Event Catering & Organization Services | En Tatlı Telaşım";
   }
 
   const content = service[language];

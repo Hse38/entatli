@@ -17,7 +17,7 @@ export async function generateMetadata(
 
   if (!service) {
     return {
-      title: "Service Not Found | ENTATLI",
+      title: "Service Not Found | En Tatlı Telaşım",
       description: "The requested service could not be found.",
       robots: {
         index: false,
@@ -62,7 +62,7 @@ export async function generateMetadata(
       title,
       description,
       url: canonical,
-      siteName: "ENTATLI",
+      siteName: "En Tatlı Telaşım",
       images: [
         {
           url: ogImage,
