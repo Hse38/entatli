@@ -703,7 +703,7 @@ export default function Home() {
               <div className="relative h-56 w-full flex justify-center">
                 <div className="relative h-full w-full max-w-md">
                   <Image
-                    src="/img/yazılıbeyaz.png"
+                    src="/img/logolu.png"
                     alt={content.brand}
                     fill
                     className="object-contain"
