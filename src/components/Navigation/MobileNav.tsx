@@ -237,7 +237,7 @@ export function MobileNav({
                       className="flex items-center"
                     >
                       <Image
-                        src="/img/yazılıbeyaz.png"
+                        src="/img/logolu.png"
                         alt={brand}
                         width={200}
                         height={60}
