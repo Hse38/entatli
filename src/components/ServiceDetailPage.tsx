@@ -158,7 +158,7 @@ export function ServiceDetailPage({ service, language }: ServiceDetailPageProps)
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-2">
           <Link href="/" className="flex items-center">
             <Image
-              src="/img/yazılıbeyaz.png"
+              src="/img/sadeyazi.png"
               alt={navContent.brand}
               width={280}
               height={80}
