@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default function ServicePage() {
   const params = useParams();
   const serviceId = params?.id as ServiceId;
-  const [lang, setLang] = useState<"tr" | "en">("en");
+  const [lang, setLang] = useState<"tr" | "en">("tr");
 
   useEffect(() => {
     const stored = localStorage.getItem("lang");
@@ -16,9 +16,8 @@ export default function ServicePage() {
       setLang(stored);
       return;
     }
-    if (navigator.language.toLowerCase().startsWith("tr")) {
-      setLang("tr");
-    }
+    // Default to Turkish if no preference stored
+    setLang("tr");
   }, []);
 
   const service = getServiceById(serviceId);

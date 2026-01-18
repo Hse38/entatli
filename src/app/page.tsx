@@ -436,7 +436,7 @@ function Counter({ value, suffix, label }: { value: number; suffix: string; labe
 
 export default function Home() {
   const { setPageContext, setLanguage } = useChatbot();
-  const [lang, setLang] = useState<Language>("en");
+  const [lang, setLang] = useState<Language>("tr");
   const content = useMemo(() => translations[lang], [lang]);
 
   useEffect(() => {
