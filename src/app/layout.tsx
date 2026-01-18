@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://entatlitelasim.com"),
-  title: "Enta Litle Asim | Premium Dessert & Catering Logistics",
+  title: "En Tatlı Telaşım | Premium Dessert & Catering Logistics",
   description:
     "Premium dessert and catering solutions for corporate organizations and large-scale events. Flawless logistics, zero-risk execution, absolute reliability.",
   icons: {
@@ -41,17 +41,17 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Enta Litle Asim | Premium Dessert & Catering Logistics",
+    title: "En Tatlı Telaşım | Premium Dessert & Catering Logistics",
     description:
       "Premium dessert and catering solutions for corporate organizations and large-scale events. Flawless logistics, zero-risk execution, absolute reliability.",
     url: "https://entatlitelasim.com",
-    siteName: "Enta Litle Asim",
+    siteName: "En Tatlı Telaşım",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "Enta Litle Asim premium dessert catering",
+        alt: "En Tatlı Telaşım premium dessert catering",
       },
     ],
     locale: "en_US",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Enta Litle Asim | Premium Dessert & Catering Logistics",
+    title: "En Tatlı Telaşım | Premium Dessert & Catering Logistics",
     description:
       "Premium dessert and catering solutions for corporate organizations and large-scale events. Flawless logistics, zero-risk execution, absolute reliability.",
     images: ["/og-image.svg"],

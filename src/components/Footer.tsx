@@ -38,7 +38,7 @@ const footerContent = {
       contact: "İletişim",
     },
     contact: "İletişim",
-    rights: "© 2026 Enta Litle Asim. Tüm hakları saklıdır.",
+    rights: "© 2026 En Tatlı Telaşım. Tüm hakları saklıdır.",
     location: "İstanbul, Türkiye",
   },
   en: {
@@ -54,7 +54,7 @@ const footerContent = {
       contact: "Contact",
     },
     contact: "Contact",
-    rights: "© 2026 Enta Litle Asim. All rights reserved.",
+    rights: "© 2026 En Tatlı Telaşım. All rights reserved.",
     location: "Istanbul, Turkey",
   },
 };
@@ -83,7 +83,7 @@ export function Footer({ language }: FooterProps) {
             <Link href="/" className="inline-block">
               <Image
                 src="/img/yazılıbeyaz.png"
-                alt="Enta Litle Asim"
+                alt="En Tatlı Telaşım"
                 width={200}
                 height={60}
                 className="h-10 w-auto object-contain"

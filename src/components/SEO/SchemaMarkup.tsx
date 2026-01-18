@@ -98,7 +98,7 @@ export function SchemaMarkup({
         description: content.description,
         brand: {
           "@type": "Brand",
-          name: "Enta Litle Asim",
+          name: "En Tatlı Telaşım",
         },
         category: "Event Catering Service",
         offers: {

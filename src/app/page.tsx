@@ -20,7 +20,7 @@ type Language = "tr" | "en";
 
 const translations = {
   en: {
-    brand: "Enta Litle Asim",
+    brand: "En Tatlı Telaşım",
     nav: {
       services: "Services",
       whyUs: "Why Us",
@@ -187,7 +187,7 @@ const translations = {
       website: "entatlitelasim.com",
     },
     footer: {
-      rights: "© 2026 Enta Litle Asim. All rights reserved.",
+      rights: "© 2026 En Tatlı Telaşım. All rights reserved.",
       address: "Maslak, Istanbul · +90 212 555 01 02",
     },
     chat: {
@@ -210,7 +210,7 @@ const translations = {
     },
   },
   tr: {
-    brand: "Enta Litle Asim",
+    brand: "En Tatlı Telaşım",
     nav: {
       services: "Hizmetler",
       whyUs: "Neden Biz",
@@ -377,7 +377,7 @@ const translations = {
       website: "entatlitelasim.com",
     },
     footer: {
-      rights: "© 2026 Enta Litle Asim. Tüm hakları saklıdır.",
+      rights: "© 2026 En Tatlı Telaşım. Tüm hakları saklıdır.",
       address: "Maslak, İstanbul · +90 212 555 01 02",
     },
     chat: {

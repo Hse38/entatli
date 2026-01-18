@@ -24,7 +24,7 @@ type ServiceDetailPageProps = {
 // Navigation translations
 const navTranslations = {
   tr: {
-    brand: "Enta Litle Asim",
+    brand: "En Tatlı Telaşım",
     nav: {
       services: "Hizmetler",
       whyUs: "Neden Biz",
@@ -33,7 +33,7 @@ const navTranslations = {
     },
   },
   en: {
-    brand: "Enta Litle Asim",
+    brand: "En Tatlı Telaşım",
     nav: {
       services: "Services",
       whyUs: "Why Us",

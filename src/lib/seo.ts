@@ -196,7 +196,7 @@ export function generateBreadcrumbs(
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Enta Litle Asim",
+  name: "En Tatlı Telaşım",
   alternateName: "ENTATLI",
   url: "https://entatlitelasim.com",
   logo: "https://entatlitelasim.com/img/yazılıbeyaz.png",
@@ -234,7 +234,7 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "@id": "https://entatlitelasim.com/#organization",
-  name: "Enta Litle Asim",
+  name: "En Tatlı Telaşım",
   image: "https://entatlitelasim.com/img/yazılıbeyaz.png",
   telephone: ["+90-212-466-13-83", "+90-532-617-46-23"],
   email: "info@entatlitelasim.com",
