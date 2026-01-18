@@ -3,6 +3,7 @@ import "./globals.css";
 import { Inter, Playfair_Display } from "next/font/google";
 import { ChatbotProvider } from "../contexts/ChatbotContext";
 import { NavProvider } from "../contexts/NavContext";
+import { IntroVideoOverlay } from "../components/IntroVideoOverlay";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,7 +71,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${playfair.variable} antialiased`}
         suppressHydrationWarning
@@ -78,6 +79,7 @@ export default function RootLayout({
         <ChatbotProvider>
           <NavProvider>
             {children}
+            <IntroVideoOverlay />
           </NavProvider>
         </ChatbotProvider>
       </body>

@@ -33,7 +33,7 @@ export function SchemaMarkup({
     allSchemas.push(localBusinessSchema);
 
     // 3. BreadcrumbList Schema
-    const breadcrumbs = generateBreadcrumbs(service, language);
+    const breadcrumbs = generateBreadcrumbs(service ?? null, language);
     allSchemas.push({
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -46,7 +46,7 @@ export function SchemaMarkup({
     });
 
     // 4. Service Schema (if service provided)
-    if (service) {
+    if (service != null) {
       const content = service[language];
       const serviceUrl = generateCanonicalUrl(service.id, language);
 
