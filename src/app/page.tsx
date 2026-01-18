@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import HorizontalScroll from "../components/HorizontalScroll";
 import { getGlobalGalleryImages } from "../components/GlobalGallery";
 import { HorizontalGallery } from "../components/HorizontalGallery";
@@ -648,9 +650,11 @@ export default function Home() {
                 const serviceId = serviceIds[idx] || `service-${idx}`;
                 const serviceImage = serviceImages[idx] || "/img/catering.jpg";
                 return (
-                  <article
+                  <Link
                     key={service.title}
-                    className="group relative overflow-hidden rounded-3xl border border-dark/10 bg-white p-8 shadow-lg transition hover:-translate-y-2 focus-within:ring-2 focus-within:ring-lilac/50"
+                    href={`/services/${serviceId}`}
+                    className="group relative block overflow-hidden rounded-3xl border border-dark/10 bg-white p-8 shadow-lg transition hover:-translate-y-2 focus-within:ring-2 focus-within:ring-lilac/50 focus:outline-none cursor-pointer"
+                    aria-label={`${content.services.action}: ${service.title}`}
                   >
                     <div className="relative mb-6 h-40 overflow-hidden rounded-2xl">
                       <Image
@@ -669,11 +673,7 @@ export default function Home() {
                         {service.title}
                       </h3>
                       <p className="text-sm text-dark/70">{service.description}</p>
-                      <a
-                        href={`/services/${serviceId}`}
-                        className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-lilac transition hover:text-dark-purple focus:outline-none focus:ring-2 focus:ring-lilac/50"
-                        aria-label={`${content.services.action}: ${service.title}`}
-                      >
+                      <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-lilac transition group-hover:text-dark-purple pointer-events-none">
                         {content.services.action}
                         <svg
                           width="12"
@@ -689,9 +689,9 @@ export default function Home() {
                         >
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                      </a>
+                      </span>
                     </div>
-                  </article>
+                  </Link>
                 );
               })}
             </div>
