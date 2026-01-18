@@ -186,23 +186,30 @@ export function MobileNav({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
               onClick={closeAllMenus}
-              className="fixed inset-0 z-40 bg-black/50 md:hidden"
+              className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
             />
 
             {/* Main Menu */}
             <motion.div
               ref={menuRef}
               id="mobile-menu"
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed right-0 top-0 z-50 h-full w-[90%] max-w-sm bg-white shadow-2xl md:hidden"
+              initial={{ x: "100%", opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0 }}
+              transition={{ 
+                duration: 0.25,
+                ease: [0.4, 0, 0.2, 1] // ease-in-out
+              }}
+              className="fixed right-0 top-0 z-50 h-full w-[90%] max-w-[420px] bg-white shadow-2xl md:hidden rounded-l-3xl"
+              role="dialog"
+              aria-modal="true"
+              aria-label={language === "tr" ? "Ana menü" : "Main menu"}
             >
               <div className="flex h-full flex-col">
-                {/* Header */}
-                <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+                {/* Header - Sticky */}
+                <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4">
                   <Link
                     href="/"
                     onClick={closeAllMenus}
@@ -213,19 +220,19 @@ export function MobileNav({
                       alt={brand}
                       width={200}
                       height={60}
-                      className="h-10 w-auto object-contain"
+                      className="h-10 w-auto object-contain opacity-90"
                       priority
                     />
                   </Link>
                   <button
                     type="button"
                     onClick={closeAllMenus}
-                    className="p-2 text-dark/70 transition hover:text-dark"
+                    className="flex h-10 w-10 items-center justify-center rounded-lg text-dark/60 transition hover:bg-gray-100 hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50"
                     aria-label={language === "tr" ? "Menüyü kapat" : "Close menu"}
                   >
                     <svg
-                      width="24"
-                      height="24"
+                      width="20"
+                      height="20"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -245,15 +252,16 @@ export function MobileNav({
                     {!isServicesSubMenuOpen ? (
                       <motion.nav
                         key="main-nav"
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: 20 }}
-                        className="flex flex-col p-6"
+                        exit={{ opacity: 0, x: 10 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        className="flex flex-col gap-1 p-6"
                       >
                         <Link
                           href="/"
                           onClick={closeAllMenus}
-                          className="py-4 text-lg font-semibold text-dark transition hover:text-lilac"
+                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {language === "tr" ? "Ana Sayfa" : "Home"}
                         </Link>
@@ -261,7 +269,7 @@ export function MobileNav({
                         <button
                           type="button"
                           onClick={openServicesSubMenu}
-                          className="flex items-center justify-between py-4 text-left text-lg font-semibold text-dark transition hover:text-lilac"
+                          className="flex min-h-[48px] items-center justify-between py-3 text-left text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           <span>{navItems.services}</span>
                           <svg
@@ -273,6 +281,7 @@ export function MobileNav({
                             strokeWidth="2"
                             strokeLinecap="round"
                             strokeLinejoin="round"
+                            className="text-dark/40"
                           >
                             <path d="M9 18l6-6-6-6" />
                           </svg>
@@ -281,7 +290,7 @@ export function MobileNav({
                         <Link
                           href="/#why-us"
                           onClick={closeAllMenus}
-                          className="py-4 text-lg font-semibold text-dark transition hover:text-lilac"
+                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {navItems.whyUs}
                         </Link>
@@ -289,7 +298,7 @@ export function MobileNav({
                         <Link
                           href="/#proof"
                           onClick={closeAllMenus}
-                          className="py-4 text-lg font-semibold text-dark transition hover:text-lilac"
+                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {navItems.proof}
                         </Link>
@@ -297,7 +306,7 @@ export function MobileNav({
                         <Link
                           href="/#contact"
                           onClick={closeAllMenus}
-                          className="py-4 text-lg font-semibold text-dark transition hover:text-lilac"
+                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {navItems.contact}
                         </Link>
@@ -338,20 +347,21 @@ export function MobileNav({
                       <motion.nav
                         key="services-nav"
                         ref={servicesMenuRef}
-                        initial={{ opacity: 0, x: 20 }}
+                        initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
+                        exit={{ opacity: 0, x: -10 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                         className="flex flex-col p-6"
                       >
                         {/* Back Button */}
                         <button
                           type="button"
                           onClick={closeServicesSubMenu}
-                          className="mb-4 flex items-center gap-2 py-2 text-dark/70 transition hover:text-dark"
+                          className="mb-6 flex min-h-[48px] items-center gap-2 rounded-lg px-2 py-3 text-sm font-medium text-dark/70 transition hover:bg-gray-50 hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 -mx-2"
                         >
                           <svg
-                            width="20"
-                            height="20"
+                            width="18"
+                            height="18"
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
@@ -361,17 +371,17 @@ export function MobileNav({
                           >
                             <path d="M15 18l-6-6 6-6" />
                           </svg>
-                          <span className="text-sm font-semibold uppercase tracking-[0.1em]">
+                          <span className="font-medium">
                             {language === "tr" ? "Geri" : "Back"}
                           </span>
                         </button>
 
-                        <h2 className="mb-4 text-xl font-semibold text-dark">
+                        <h2 className="mb-6 text-xl font-semibold text-dark">
                           {navItems.services}
                         </h2>
 
                         {/* Services List */}
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-3">
                           {services[language].map((service) => {
                             const slug = serviceSlugs[language][service.id as keyof typeof serviceSlugs["tr"]];
                             return (
@@ -379,7 +389,7 @@ export function MobileNav({
                                 key={service.id}
                                 href={`/services/${slug}`}
                                 onClick={closeAllMenus}
-                                className="rounded-lg border border-gray-200 bg-white px-4 py-4 text-left transition hover:border-lilac hover:bg-lilac/5"
+                                className="flex min-h-[56px] items-center rounded-lg border border-gray-200 bg-white px-5 py-4 text-left transition hover:border-lilac hover:bg-lilac/5 focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2"
                               >
                                 <span className="text-base font-medium text-dark">
                                   {service.title}
@@ -393,12 +403,12 @@ export function MobileNav({
                   </AnimatePresence>
                 </div>
 
-                {/* Sticky CTA */}
-                <div className="border-t border-gray-200 bg-white p-6">
+                {/* Sticky CTA - Bottom */}
+                <div className="sticky bottom-0 border-t border-gray-100 bg-white p-6">
                   <Link
                     href="/#contact"
                     onClick={closeAllMenus}
-                    className="block w-full rounded-full bg-lilac px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white transition hover:bg-soft-lavender hover:text-dark"
+                    className="block w-full min-h-[48px] flex items-center justify-center rounded-full bg-lilac px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-soft-lavender hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2"
                   >
                     {ctaText}
                   </Link>
