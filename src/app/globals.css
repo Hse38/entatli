@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #f7f5ff;
+  --foreground: #111111;
+  --lilac: #6b4eff;
+  --dark-purple: #2b193d;
+  --soft-lavender: #c7b8ff;
+  --gold: #d6b36a;
+  --dark: #0e0b14;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-lilac: var(--lilac);
+  --color-dark-purple: var(--dark-purple);
+  --color-soft-lavender: var(--soft-lavender);
+  --color-gold: var(--gold);
+  --color-dark: var(--dark);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-playfair), "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+.section-padding {
+  @apply px-6 py-20 sm:px-10 lg:px-20;
+}
+
+.glass-panel {
+  background: rgba(15, 12, 22, 0.6);
+  border: 1px solid rgba(107, 78, 255, 0.2);
+  backdrop-filter: blur(18px);
+}
+
+.lilac-gradient {
+  background: radial-gradient(circle at top, rgba(107, 78, 255, 0.35), transparent 55%),
+    linear-gradient(140deg, rgba(43, 25, 61, 0.9), rgba(14, 11, 20, 0.95));
+}
+
+.grain-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
