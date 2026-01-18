@@ -329,7 +329,7 @@ export function MobileNav({
                         <button
                           type="button"
                           onClick={openServicesSubMenu}
-                          className="flex min-h-[48px] items-center justify-between py-3 text-left text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
+                          className="flex min-h-[48px] items-center justify-between py-3 text-left text-sm uppercase tracking-[0.2em] font-semibold text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           <span>{navItems.services}</span>
                           <svg
@@ -350,7 +350,7 @@ export function MobileNav({
                         <Link
                           href="/#why-us"
                           onClick={closeAllMenus}
-                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
+                          className="flex min-h-[48px] items-center py-3 text-sm uppercase tracking-[0.2em] font-semibold text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {navItems.whyUs}
                         </Link>
@@ -358,7 +358,7 @@ export function MobileNav({
                         <Link
                           href="/#proof"
                           onClick={closeAllMenus}
-                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
+                          className="flex min-h-[48px] items-center py-3 text-sm uppercase tracking-[0.2em] font-semibold text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {navItems.proof}
                         </Link>
@@ -366,7 +366,7 @@ export function MobileNav({
                         <Link
                           href="/#contact"
                           onClick={closeAllMenus}
-                          className="flex min-h-[48px] items-center py-3 text-base font-medium text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
+                          className="flex min-h-[48px] items-center py-3 text-sm uppercase tracking-[0.2em] font-semibold text-dark transition hover:text-lilac focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2 rounded-lg px-2 -mx-2"
                         >
                           {navItems.contact}
                         </Link>

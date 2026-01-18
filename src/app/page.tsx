@@ -211,12 +211,12 @@ const translations = {
   },
   tr: {
     brand: "En Tatlı Telaşım",
-    nav: {
-      services: "Hİzmetler",
-      whyUs: "Neden Bİz",
-      proof: "Galerİ & Referanslar",
-      contact: "İletİşİm",
-    },
+      nav: {
+        services: "HİZMETLER",
+        whyUs: "NEDEN BİZ",
+        proof: "GALERİ & REFERANSLAR",
+        contact: "İLETİŞİM",
+      },
     hero: {
       kicker: "Premium Catering & Event Hizmeti",
       title: "Büyük Ölçekli Etkinlikler için Premium Event & Catering Çözümleri",
