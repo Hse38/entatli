@@ -72,6 +72,7 @@ export function MobileNav({
   const {
     isMobileMenuOpen,
     isServicesSubMenuOpen,
+    openMobileMenu,
     closeMobileMenu,
     openServicesSubMenu,
     closeServicesSubMenu,
@@ -140,7 +141,7 @@ export function MobileNav({
           if (isMobileMenuOpen) {
             closeAllMenus();
           } else {
-            closeServicesSubMenu();
+            openMobileMenu();
           }
         }}
         className="md:hidden flex flex-col gap-1.5 p-2"
