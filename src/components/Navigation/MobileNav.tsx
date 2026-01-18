@@ -311,7 +311,7 @@ export function MobileNav({
                 </div>
 
                 {/* Navigation Content */}
-                <div className="flex-1 overflow-y-auto">
+                <div className="flex-1 overflow-y-auto min-h-0">
                   <AnimatePresence mode="wait">
                     {!isServicesSubMenuOpen ? (
                       <motion.nav
@@ -324,7 +324,7 @@ export function MobileNav({
                             ? { duration: 0 }
                             : { duration: 0.2, ease: [0.4, 0, 0.2, 1] }
                         }
-                        className="flex flex-col gap-1 p-6"
+                        className="flex flex-col gap-1 p-6 w-full"
                       >
                         <button
                           type="button"
