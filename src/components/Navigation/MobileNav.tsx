@@ -229,41 +229,54 @@ export function MobileNav({
             >
               <div className="flex h-full flex-col">
                 {/* Header - Sticky */}
-                <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-100 bg-white px-6 py-4">
-                  <Link
-                    href="/"
-                    onClick={closeAllMenus}
-                    className="flex items-center"
-                  >
-                    <Image
-                      src="/img/yazılıbeyaz.png"
-                      alt={brand}
-                      width={200}
-                      height={60}
-                      className="h-10 w-auto object-contain opacity-90"
-                      priority
-                    />
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={closeAllMenus}
-                    className="flex h-10 w-10 items-center justify-center rounded-lg text-dark/60 transition hover:bg-gray-100 hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50"
-                    aria-label={language === "tr" ? "Menüyü kapat" : "Close menu"}
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
+                <div className="sticky top-0 z-10 bg-white">
+                  <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4">
+                    <Link
+                      href="/"
+                      onClick={closeAllMenus}
+                      className="flex items-center"
                     >
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  </button>
+                      <Image
+                        src="/img/yazılıbeyaz.png"
+                        alt={brand}
+                        width={200}
+                        height={60}
+                        className="h-10 w-auto object-contain opacity-90"
+                        priority
+                      />
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={closeAllMenus}
+                      className="flex h-10 w-10 items-center justify-center rounded-lg text-dark/60 transition hover:bg-gray-100 hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50"
+                      aria-label={language === "tr" ? "Menüyü kapat" : "Close menu"}
+                    >
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+                  
+                  {/* CTA Button - Below Header */}
+                  <div className="border-b border-gray-200 bg-white px-6 pb-4">
+                    <Link
+                      href="/#contact"
+                      onClick={closeAllMenus}
+                      className="block w-full min-h-[48px] flex items-center justify-center rounded-full bg-lilac px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-soft-lavender hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2"
+                    >
+                      {ctaText}
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Navigation Content */}
@@ -431,16 +444,6 @@ export function MobileNav({
                   </AnimatePresence>
                 </div>
 
-                {/* Sticky CTA - Bottom */}
-                <div className="sticky bottom-0 border-t border-gray-100 bg-white p-6">
-                  <Link
-                    href="/#contact"
-                    onClick={closeAllMenus}
-                    className="block w-full min-h-[48px] flex items-center justify-center rounded-full bg-lilac px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg transition hover:bg-soft-lavender hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50 focus:ring-offset-2"
-                  >
-                    {ctaText}
-                  </Link>
-                </div>
               </div>
             </motion.div>
           </>
