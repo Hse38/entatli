@@ -212,10 +212,10 @@ const translations = {
   tr: {
     brand: "En Tatlı Telaşım",
     nav: {
-      services: "Hizmetler",
-      whyUs: "Neden Biz",
-      proof: "Galeri & Referanslar",
-      contact: "İletişim",
+      services: "Hİzmetler",
+      whyUs: "Neden Bİz",
+      proof: "Galerİ & Referanslar",
+      contact: "İletİşİm",
     },
     hero: {
       kicker: "Premium Catering & Event Hizmeti",
