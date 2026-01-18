@@ -35,6 +35,54 @@ export function IntroVideoOverlay() {
     }
   }, [isMounted]);
 
+  // Handle video play after isPlaying state changes
+  useEffect(() => {
+    if (!isPlaying) return;
+    
+    // Wait for video element to be rendered (React needs time to render)
+    const timer = setTimeout(() => {
+      const video = videoRef.current;
+      if (!video) {
+        console.warn("Video element not found");
+        setIsLoading(false);
+        return;
+      }
+
+      // Load video if needed
+      if (video.readyState === 0) {
+        video.load();
+      }
+
+      // Wait for video to be ready, then play
+      const tryPlay = () => {
+        if (video.readyState >= 2) {
+          // Video is loaded enough to play
+          const playPromise = video.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                setIsLoading(false);
+              })
+              .catch((error) => {
+                console.error("Video play error:", error);
+                setIsLoading(false);
+              });
+          } else {
+            setIsLoading(false);
+          }
+        } else {
+          // Wait a bit more for video to load
+          setTimeout(tryPlay, 100);
+        }
+      };
+
+      // Start trying to play
+      tryPlay();
+    }, 300); // Give React time to render the video element
+
+    return () => clearTimeout(timer);
+  }, [isPlaying]);
+
   const handleClose = () => {
     const video = videoRef.current;
     if (video) {
@@ -98,13 +146,7 @@ export function IntroVideoOverlay() {
     setIsLoading(true);
     setIsPlaying(true);
     setIsPaused(false);
-    const video = videoRef.current;
-    if (video) {
-      video.play().catch(() => {
-        // Fail silently, skip intro
-        handleClose();
-      });
-    }
+    // Video play will be handled by useEffect when isPlaying changes
   };
 
   const handleTogglePlayPause = () => {
@@ -125,9 +167,11 @@ export function IntroVideoOverlay() {
     handleClose();
   };
 
-  const handleVideoError = () => {
-    // Fail silently, skip intro
-    handleClose();
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error("Video error:", e);
+    setIsLoading(false);
+    // Don't auto-close on error, let user decide
+    // Show error message or allow retry
   };
 
   const handleVideoLoaded = () => {
@@ -247,11 +291,17 @@ export function IntroVideoOverlay() {
                   className="h-full w-full object-cover"
                   muted
                   playsInline
+                  preload="auto"
                   onEnded={handleVideoEnd}
                   onError={handleVideoError}
                   onLoadedData={handleVideoLoaded}
-                  onPlay={() => setIsPaused(false)}
+                  onCanPlay={() => setIsLoading(false)}
+                  onPlay={() => {
+                    setIsPaused(false);
+                    setIsLoading(false);
+                  }}
                   onPause={() => setIsPaused(true)}
+                  onWaiting={() => setIsLoading(true)}
                   controls={false}
                 />
 
