@@ -340,15 +340,14 @@ export function MobileNav({
                           {navItems.contact}
                         </Link>
 
-                        {/* Language Selector */}
-                        <div className="mt-8 flex gap-3 border-t border-gray-200 pt-6">
+                        {/* Language Selector - Same style as desktop */}
+                        <div className="mt-6 flex items-center gap-2 border-t border-gray-200 pt-6">
                           <button
                             type="button"
                             onClick={() => {
                               onLanguageChange("tr");
-                              closeAllMenus();
                             }}
-                            className={`flex-1 rounded-full border px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.1em] transition ${
+                            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition ${
                               currentLang === "tr"
                                 ? "border-soft-lavender bg-soft-lavender text-dark"
                                 : "border-dark/20 text-dark/70 hover:border-soft-lavender hover:text-dark"
@@ -360,9 +359,8 @@ export function MobileNav({
                             type="button"
                             onClick={() => {
                               onLanguageChange("en");
-                              closeAllMenus();
                             }}
-                            className={`flex-1 rounded-full border px-4 py-2.5 text-sm font-semibold uppercase tracking-[0.1em] transition ${
+                            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition ${
                               currentLang === "en"
                                 ? "border-soft-lavender bg-soft-lavender text-dark"
                                 : "border-dark/20 text-dark/70 hover:border-soft-lavender hover:text-dark"
