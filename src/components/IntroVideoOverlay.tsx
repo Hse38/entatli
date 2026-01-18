@@ -279,7 +279,7 @@ export function IntroVideoOverlay() {
               className="relative w-full max-w-4xl px-4 sm:px-6"
             >
               {isLoading && (
-                <div className="absolute inset-0 flex items-center justify-center bg-dark/50">
+                <div className="absolute inset-0 z-10 flex items-center justify-center bg-dark/50">
                   <div className="h-12 w-12 animate-spin rounded-full border-4 border-white/20 border-t-white" />
                 </div>
               )}
@@ -294,8 +294,27 @@ export function IntroVideoOverlay() {
                   preload="auto"
                   onEnded={handleVideoEnd}
                   onError={handleVideoError}
-                  onLoadedData={handleVideoLoaded}
-                  onCanPlay={() => setIsLoading(false)}
+                  onLoadedData={() => {
+                    handleVideoLoaded();
+                    // Try to play once loaded
+                    const video = videoRef.current;
+                    if (video && isPlaying) {
+                      video.play().catch((error) => {
+                        console.error("Auto-play error:", error);
+                        setIsLoading(false);
+                      });
+                    }
+                  }}
+                  onCanPlay={() => {
+                    setIsLoading(false);
+                    // Ensure video plays if isPlaying is true
+                    const video = videoRef.current;
+                    if (video && isPlaying && video.paused) {
+                      video.play().catch((error) => {
+                        console.error("CanPlay play error:", error);
+                      });
+                    }
+                  }}
                   onPlay={() => {
                     setIsPaused(false);
                     setIsLoading(false);
