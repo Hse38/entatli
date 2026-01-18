@@ -445,9 +445,8 @@ export default function Home() {
       setLang(stored);
       return;
     }
-    if (navigator.language.toLowerCase().startsWith("tr")) {
-      setLang("tr");
-    }
+    // Default to Turkish if no preference stored
+    setLang("tr");
   }, []);
 
   useEffect(() => {
