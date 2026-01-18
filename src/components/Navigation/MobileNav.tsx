@@ -245,26 +245,57 @@ export function MobileNav({
                         priority
                       />
                     </Link>
-                    <button
-                      type="button"
-                      onClick={closeAllMenus}
-                      className="flex h-10 w-10 items-center justify-center rounded-lg text-dark/60 transition hover:bg-gray-100 hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50"
-                      aria-label={language === "tr" ? "Menüyü kapat" : "Close menu"}
-                    >
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                    <div className="flex items-center gap-4">
+                      {/* Language Selector - Same style as desktop */}
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onLanguageChange("tr");
+                          }}
+                          className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+                            currentLang === "tr"
+                              ? "border-soft-lavender bg-soft-lavender text-dark"
+                              : "border-dark/20 text-dark/70 hover:border-soft-lavender hover:text-dark"
+                          }`}
+                        >
+                          TR
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            onLanguageChange("en");
+                          }}
+                          className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition ${
+                            currentLang === "en"
+                              ? "border-soft-lavender bg-soft-lavender text-dark"
+                              : "border-dark/20 text-dark/70 hover:border-soft-lavender hover:text-dark"
+                          }`}
+                        >
+                          EN
+                        </button>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={closeAllMenus}
+                        className="flex h-10 w-10 items-center justify-center rounded-lg text-dark/60 transition hover:bg-gray-100 hover:text-dark focus:outline-none focus:ring-2 focus:ring-lilac/50"
+                        aria-label={language === "tr" ? "Menüyü kapat" : "Close menu"}
                       >
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
-                    </button>
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="18" y1="6" x2="6" y2="18" />
+                          <line x1="6" y1="6" x2="18" y2="18" />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                   
                   {/* CTA Button - Below Header */}
@@ -339,36 +370,6 @@ export function MobileNav({
                         >
                           {navItems.contact}
                         </Link>
-
-                        {/* Language Selector - Same style as desktop */}
-                        <div className="mt-6 flex items-center gap-2 border-t border-gray-200 pt-6">
-                          <button
-                            type="button"
-                            onClick={() => {
-                              onLanguageChange("tr");
-                            }}
-                            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition ${
-                              currentLang === "tr"
-                                ? "border-soft-lavender bg-soft-lavender text-dark"
-                                : "border-dark/20 text-dark/70 hover:border-soft-lavender hover:text-dark"
-                            }`}
-                          >
-                            TR
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              onLanguageChange("en");
-                            }}
-                            className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] transition ${
-                              currentLang === "en"
-                                ? "border-soft-lavender bg-soft-lavender text-dark"
-                                : "border-dark/20 text-dark/70 hover:border-soft-lavender hover:text-dark"
-                            }`}
-                          >
-                            EN
-                          </button>
-                        </div>
                       </motion.nav>
                     ) : (
                       <motion.nav
