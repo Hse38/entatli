@@ -218,10 +218,10 @@ const translations = {
       contact: "İletişim",
     },
     hero: {
-      kicker: "Premium Tatlı Lojistiği",
-      title: "Büyük Ölçekli Etkinlikler için Premium Tatlı & Catering Çözümleri",
+      kicker: "Premium Catering & Event Hizmeti",
+      title: "Büyük Ölçekli Etkinlikler için Premium Event & Catering Çözümleri",
       description:
-        "Kurumsal organizasyonlardan yüksek hacimli etkinliklere kadar kusursuz tatlı lojistiği sunarız.",
+        "Kurumsal organizasyonlardan yüksek hacimli etkinliklere kadar kusursuz catering hizmeti sunarız.",
       ctaPrimary: "Teklif Al",
       ctaSecondary: "Hemen Ara",
     },
